@@ -24,8 +24,8 @@ default_args = {
     'owner': 'Fernando',
     'depends_on_past': False,
     'start_date': datetime(27, 9, 25),
-    'retries': 0,
-    'retry_delay': timedelta(minutes=10),
+    'retries': 3,
+    'retry_delay': timedelta(minutes=5),
     'catchup_by_default': False,
     'email_on_retry': False
     
@@ -47,7 +47,7 @@ def run_lambda(lambda_name):
 dag = DAG('how_bootcamp_final',
     default_args=default_args,
     description='Final project of how bootcamp',
-    schedule_interval='@once',
+    schedule_interval='0 0 * * MON',
     max_active_runs=1
 )
 
